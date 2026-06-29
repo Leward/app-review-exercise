@@ -1,0 +1,15 @@
+### GET page 1 of RSS feed asking for JSON
+GET https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=1/json
+Accept: application/json
+
+### Get page 2 following the "next" link from previous response. We notice that we get forced back to XML
+GET https://itunes.apple.com/us/rss/customerreviews/page=2/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=1/json
+Accept: application/json
+
+### GET page 1 of RSS feed asking for XML, we notice in the results that the content in a complex HTML rather than simple text
+GET https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=1/xml
+Accept: application/json
+
+### Get page 2 following the URL, but clean-up
+GET https://itunes.apple.com/us/rss/customerreviews/page=2/id=595068606/sortby=mostrecent/json
+Accept: application/json

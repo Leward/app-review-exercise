@@ -1,0 +1,306 @@
+{
+  "feed": {
+    "author": {
+      "name": {
+        "label": "iTunes Store"
+      },
+      "uri": {
+        "label": "http://www.apple.com/itunes/"
+      }
+    },
+    "entry": [
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id36926770"
+          },
+          "name": {
+            "label": "Heudncomejbfbfjnx"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-06-08T20:04:18-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14160694531"
+        },
+        "title": {
+          "label": "Love!!!!"
+        },
+        "content": {
+          "label": "I absolutely love this app, it makes group dinners so easy to spilt. I recommend it to all my friends!",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id638013262"
+          },
+          "name": {
+            "label": "Mira0129"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-06-02T14:00:39-07:00"
+        },
+        "im:rating": {
+          "label": "1"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14136647652"
+        },
+        "title": {
+          "label": "Annoying"
+        },
+        "content": {
+          "label": "I originally downloaded this a while ago but I forgot why I deleted it. Oh yeah redownloading it today gave me the refresher because if it’s a file of a receipt you can’t upload it and no matter how clear a screenshot is somehow it’s still blurry. Why tf would I download a receipt splitting app to hand split a 72 item receipt when I’m trying single screenshot by single screenshot of a perfectly clear file and nope it’s blurry. HOW ITS CLEAR ASF IT CANT GET ANY CLEARER",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id30873873"
+          },
+          "name": {
+            "label": "Shayne--o"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-23T13:27:56-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14098079916"
+        },
+        "title": {
+          "label": "Where has this been all my life?"
+        },
+        "content": {
+          "label": "A very useful app indeed.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id86441634"
+          },
+          "name": {
+            "label": "Abbrazi"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-16T09:38:36-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14071614125"
+        },
+        "title": {
+          "label": "Lifechanging"
+        },
+        "content": {
+          "label": "This app is so good, I’ve been using it for years and recommended it to basically everyone I know.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id1351125428"
+          },
+          "name": {
+            "label": "Whydoineedthisfr"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-15T22:10:42-07:00"
+        },
+        "im:rating": {
+          "label": "1"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14069720289"
+        },
+        "title": {
+          "label": "Garbage"
+        },
+        "content": {
+          "label": "Garbage",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      }
+    ],
+    "updated": {
+      "label": "2026-06-29T08:27:31-07:00"
+    },
+    "rights": {
+      "label": "Copyright 2008 Apple Inc."
+    },
+    "title": {
+      "label": "iTunes Store: Customer Reviews"
+    },
+    "icon": {
+      "label": "http://itunes.apple.com/favicon.ico"
+    },
+    "link": [
+      {
+        "attributes": {
+          "rel": "alternate",
+          "type": "text/html",
+          "href": "https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=us&id=1"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "self",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=1/json"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "next",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/page=2/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=1/json"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "last",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/page=3/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=1/json"
+        }
+      }
+    ],
+    "id": {
+      "label": "https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=1/json"
+    }
+  }
+}

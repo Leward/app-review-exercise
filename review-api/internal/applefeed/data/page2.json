@@ -1,0 +1,312 @@
+{
+  "feed": {
+    "author": {
+      "name": {
+        "label": "iTunes Store"
+      },
+      "uri": {
+        "label": "http://www.apple.com/itunes/"
+      }
+    },
+    "entry": [
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id436557692"
+          },
+          "name": {
+            "label": "SVA_SVA"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-15T02:47:10-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14066544194"
+        },
+        "title": {
+          "label": "Toggle Option"
+        },
+        "content": {
+          "label": "Very nice app! So convenient when having to split checks. A toggle option to view the picture of the receipt while making edits would be nice.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id117787225"
+          },
+          "name": {
+            "label": "LocalTraveler"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-11T13:42:04-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14051662970"
+        },
+        "title": {
+          "label": "Simple, Effective, Easy to use"
+        },
+        "content": {
+          "label": "Splitting receipts at dinner with friends and coworkers is simple and it actually works. No setup necessary, just take a picture and start splitting. Integration with Venmo makes sending requests easy too.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id1111043231"
+          },
+          "name": {
+            "label": "Nateson1"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-08T09:05:07-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14038167664"
+        },
+        "title": {
+          "label": "Essential"
+        },
+        "content": {
+          "label": "Perfect for nights out with friends.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id1147041764"
+          },
+          "name": {
+            "label": "fhdhdiejsns"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-05-04T07:11:09-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "14021272714"
+        },
+        "title": {
+          "label": "The. Best."
+        },
+        "content": {
+          "label": "I NEVER write reviews. But this app is life changing. Splitting bills with 15 people can take 30 mins easily. This app did it in under 5. It’s insane how good the text recognition is. Cannot recommend this enough.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      },
+      {
+        "author": {
+          "uri": {
+            "label": "https://itunes.apple.com/us/reviews/id44985223"
+          },
+          "name": {
+            "label": "shashank7"
+          },
+          "label": ""
+        },
+        "updated": {
+          "label": "2026-04-26T17:49:05-07:00"
+        },
+        "im:rating": {
+          "label": "5"
+        },
+        "im:version": {
+          "label": "3.124.0"
+        },
+        "id": {
+          "label": "13989184516"
+        },
+        "title": {
+          "label": "Awesome"
+        },
+        "content": {
+          "label": "I tried various apps and this one is by far the best.",
+          "attributes": {
+            "type": "text"
+          }
+        },
+        "link": {
+          "attributes": {
+            "rel": "related",
+            "href": "https://itunes.apple.com/us/review?id=595068606&type=Purple%20Software"
+          }
+        },
+        "im:voteSum": {
+          "label": "0"
+        },
+        "im:contentType": {
+          "attributes": {
+            "term": "Application",
+            "label": "Application"
+          }
+        },
+        "im:voteCount": {
+          "label": "0"
+        }
+      }
+    ],
+    "updated": {
+      "label": "2026-06-29T08:27:31-07:00"
+    },
+    "rights": {
+      "label": "Copyright 2008 Apple Inc."
+    },
+    "title": {
+      "label": "iTunes Store: Customer Reviews"
+    },
+    "icon": {
+      "label": "http://itunes.apple.com/favicon.ico"
+    },
+    "link": [
+      {
+        "attributes": {
+          "rel": "alternate",
+          "type": "text/html",
+          "href": "https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=us&id=1"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "self",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=2/json"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "next",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/page=3/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=2/json"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "last",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/page=3/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=2/json"
+        }
+      },
+      {
+        "attributes": {
+          "rel": "previous",
+          "href": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=595068606/sortby=mostrecent/xml?urlDesc=/customerreviews/id=595068606/sortBy=mostRecent/page=2/json"
+        }
+      }
+    ],
+    "id": {
+      "label": "https://itunes.apple.com/us/rss/customerreviews/id=595068606/sortBy=mostRecent/page=2/json"
+    }
+  }
+}
