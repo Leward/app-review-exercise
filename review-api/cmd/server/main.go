@@ -40,7 +40,7 @@ func main() {
 
 	go func() {
 		<-ctx.Done()
-		server.Shutdown(context.Background())
+		server.Shutdown(context.Background()) // we may want to enforce a max shutdown delay
 	}()
 
 	err := server.ListenAndServe()
