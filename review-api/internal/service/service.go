@@ -11,13 +11,19 @@ type Feed interface {
 	Fetch(context.Context, *time.Time) ([]domain.Review, error)
 }
 
-type Service struct {
-	feed Feed
+type Repository interface {
+	Persist(context.Context, []domain.Review) error
 }
 
-func NewService(feed Feed) *Service {
+type Service struct {
+	feed Feed
+	repo Repository
+}
+
+func NewService(feed Feed, repo Repository) *Service {
 	return &Service{
 		feed: feed,
+		repo: repo,
 	}
 }
 
@@ -27,5 +33,10 @@ func (s *Service) GetReviews(ctx context.Context) ([]domain.Review, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch reviews from feed: %w", err)
 	}
+
+	if err := s.repo.Persist(ctx, feedReviews); err != nil {
+		return nil, fmt.Errorf("failed to persist reviews: %w", err)
+	}
+
 	return feedReviews, nil
 }
