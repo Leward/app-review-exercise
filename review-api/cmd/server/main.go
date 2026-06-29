@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"review-api/internal/service"
 
 	"review-api/internal/applefeed"
 )
@@ -14,11 +15,12 @@ import (
 func main() {
 	ctx, _ := signal.NotifyContext(context.Background(), os.Interrupt)
 
+	feed := applefeed.NewFeed("595068606")
+	reviewService := service.NewService(feed)
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /reviews", func(w http.ResponseWriter, r *http.Request) {
-		feed := applefeed.NewFeed("595068606")
-
-		reviews, err := feed.Fetch(r.Context(), nil)
+		reviews, err := reviewService.GetReviews(r.Context())
 		if err != nil {
 			log.Println("failed to fetch reviews:", err)
 			http.Error(w, "failed to fetch reviews", http.StatusInternalServerError)
@@ -32,7 +34,7 @@ func main() {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(data)
+		_, _ = w.Write(data)
 	})
 
 	server := &http.Server{Addr: ":8080", Handler: mux}

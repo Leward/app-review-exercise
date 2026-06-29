@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"review-api/internal/domain"
 	"strconv"
 	"strings"
 	"time"
@@ -13,17 +14,6 @@ import (
 // Source identifies the originating system for reviews fetched from this feed.
 // It is used as the `source` part of the reviews composite primary key.
 const Source = "apple"
-
-// Review is the parsed representation of a single review from the Apple iTunes
-// RSS feed. It is converted to a store.Review by the sync flow.
-type Review struct {
-	SourceID string
-	Title    string
-	Author   string
-	Content  string
-	Rating   int
-	Date     time.Time
-}
 
 type Feed struct {
 	id       string
@@ -42,12 +32,12 @@ func NewFeed(id string) *Feed {
 
 // Fetch pulls the latest reviews from the feed. It satisfies the
 // reviewsync.FeedFetcher interface.
-func (f *Feed) Fetch(ctx context.Context, after *time.Time) ([]Review, error) {
+func (f *Feed) Fetch(ctx context.Context, after *time.Time) ([]domain.Review, error) {
 	return f.collectReviews(after)
 }
 
-func (f *Feed) collectReviews(after *time.Time) ([]Review, error) {
-	var allReviews []Review
+func (f *Feed) collectReviews(after *time.Time) ([]domain.Review, error) {
+	var allReviews []domain.Review
 
 	// Fetch first page to determine total pages
 	firstPageURL := f.url(1)
@@ -85,13 +75,13 @@ func (f *Feed) collectReviews(after *time.Time) ([]Review, error) {
 	return allReviews, nil
 }
 
-func (f *Feed) parseJSON(resp *http.Response, after *time.Time) ([]Review, int, error) {
+func (f *Feed) parseJSON(resp *http.Response, after *time.Time) ([]domain.Review, int, error) {
 	var feed AppleFeed
 	if err := json.NewDecoder(resp.Body).Decode(&feed); err != nil {
 		return nil, 0, fmt.Errorf("failed to decode JSON reviews: %w", err)
 	}
 
-	reviews := make([]Review, 0, len(feed.Feed.Entry))
+	reviews := make([]domain.Review, 0, len(feed.Feed.Entry))
 	for _, entry := range feed.Feed.Entry {
 		updated, err := time.Parse(time.RFC3339, entry.Updated.Label)
 		if err != nil {
@@ -105,7 +95,7 @@ func (f *Feed) parseJSON(resp *http.Response, after *time.Time) ([]Review, int, 
 			return nil, 0, fmt.Errorf("failed to parse rating %q: %w", entry.ImRating.Label, err)
 		}
 
-		reviews = append(reviews, Review{
+		reviews = append(reviews, domain.Review{
 			SourceID: entry.ID.Label,
 			Title:    entry.Title.Label,
 			Author:   entry.Author.Name.Label,
