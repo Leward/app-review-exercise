@@ -1,0 +1,10 @@
+.env
+
+# SQLite
+*.db
+
+# Agents
+.junie/
+
+# Jetbrains
+.idea/
