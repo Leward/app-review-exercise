@@ -4,39 +4,40 @@ import (
 	"context"
 	"fmt"
 	"review-api/internal/domain"
-	"time"
 )
 
-type Feed interface {
-	Fetch(context.Context, *time.Time) ([]domain.Review, error)
+type Repository interface {
+	List(ctx context.Context) ([]domain.Review, error)
 }
 
-type Repository interface {
-	Persist(context.Context, []domain.Review) error
+type Syncer interface {
+	SyncAppleReviews(context.Context) ([]domain.Review, error)
 }
 
 type Service struct {
-	feed Feed
+	sync Syncer
 	repo Repository
 }
 
-func NewService(feed Feed, repo Repository) *Service {
+func NewService(sync Syncer, repo Repository) *Service {
 	return &Service{
-		feed: feed,
+		sync: sync,
 		repo: repo,
 	}
 }
 
-func (s *Service) GetReviews(ctx context.Context) ([]domain.Review, error) {
-	//since := time.Now().Add(-48 * time.Hour)
-	feedReviews, err := s.feed.Fetch(ctx, nil)
+func (s *Service) GetAppleReviews(ctx context.Context) ([]domain.Review, error) {
+
+	// Fetch existing reviews from DB
+	reviews, err := s.repo.List(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("failed to list reviews: %w", err)
+	}
+
+	newReviews, err := s.sync.SyncAppleReviews(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch reviews from feed: %w", err)
 	}
 
-	if err := s.repo.Persist(ctx, feedReviews); err != nil {
-		return nil, fmt.Errorf("failed to persist reviews: %w", err)
-	}
-
-	return feedReviews, nil
+	return append(newReviews, reviews...), nil
 }

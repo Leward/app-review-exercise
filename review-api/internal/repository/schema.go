@@ -16,7 +16,7 @@ type AppleReview struct {
 	Date     time.Time `gorm:"column:date;index:idx_date"`
 }
 
-func newAppleReviewFromDomain(review domain.Review) AppleReview {
+func appleReviewFromDomain(review domain.Review) AppleReview {
 	return AppleReview{
 		SourceID: review.SourceID,
 		Title:    review.Title,
@@ -27,12 +27,31 @@ func newAppleReviewFromDomain(review domain.Review) AppleReview {
 	}
 }
 
-func newAppleReviewsFromDomain(reviews []domain.Review) []AppleReview {
+func appleReviewsFromDomain(reviews []domain.Review) []AppleReview {
 	var appleReviews []AppleReview
 	for _, review := range reviews {
-		appleReviews = append(appleReviews, newAppleReviewFromDomain(review))
+		appleReviews = append(appleReviews, appleReviewFromDomain(review))
 	}
 	return appleReviews
+}
+
+func appleReviewToDomain(review AppleReview) domain.Review {
+	return domain.Review{
+		SourceID: review.SourceID,
+		Title:    review.Title,
+		Author:   review.Author,
+		Content:  review.Content,
+		Rating:   review.Rating,
+		Date:     review.Date,
+	}
+}
+
+func appleReviewsToDomain(reviews []AppleReview) []domain.Review {
+	var domainReviews []domain.Review
+	for _, review := range reviews {
+		domainReviews = append(domainReviews, appleReviewToDomain(review))
+	}
+	return domainReviews
 }
 
 func (a AppleReview) TableName() string {

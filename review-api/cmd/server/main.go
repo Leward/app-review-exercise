@@ -9,6 +9,7 @@ import (
 	"os/signal"
 	"review-api/internal/repository"
 	"review-api/internal/service"
+	"review-api/internal/sync"
 
 	"review-api/internal/applefeed"
 
@@ -32,11 +33,12 @@ func main() {
 	// Init service and components
 	repo := repository.NewAppleReview(db)
 	feed := applefeed.NewFeed("595068606")
-	reviewService := service.NewService(feed, repo)
+	syncer := sync.New(repo, feed)
+	reviewService := service.NewService(syncer, repo)
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /reviews", func(w http.ResponseWriter, r *http.Request) {
-		reviews, err := reviewService.GetReviews(r.Context())
+		reviews, err := reviewService.GetAppleReviews(r.Context())
 		if err != nil {
 			log.Println("failed to fetch reviews:", err)
 			http.Error(w, "failed to fetch reviews", http.StatusInternalServerError)
