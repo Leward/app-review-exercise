@@ -11,6 +11,10 @@ export default defineConfig({
         target: 'http://localhost:8080',
         changeOrigin: true,
       },
+      '/reviews-async': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
     },
   },
 })

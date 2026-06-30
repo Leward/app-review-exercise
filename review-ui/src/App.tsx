@@ -1,13 +1,4 @@
-import { useEffect, useState } from 'react'
-
-type Review = {
-  SourceID: string
-  Title: string
-  Author: string
-  Content: string
-  Rating: number
-  Date: string
-}
+import { useReviewsStream } from './hooks/useReviewsStream'
 
 function formatReviewDate(dateValue: string) {
   const parsedDate = new Date(dateValue)
@@ -24,52 +15,20 @@ function getRatingStars(rating: number) {
 }
 
 function App() {
-  const [reviews, setReviews] = useState<Review[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let isMounted = true
-
-    const loadReviews = async () => {
-      try {
-        const response = await fetch('/reviews')
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`)
-        }
-
-        const payload: unknown = await response.json()
-        if (!Array.isArray(payload)) {
-          throw new Error('Unexpected response payload')
-        }
-
-        if (!isMounted) {
-          return
-        }
-        setReviews(payload as Review[])
-      } catch (caughtError) {
-        if (!isMounted) {
-          return
-        }
-
-        setError(
-          caughtError instanceof Error
-            ? caughtError.message
-            : 'Failed to load reviews',
-        )
-      } finally {
-        if (isMounted) {
-          setIsLoading(false)
-        }
-      }
-    }
-
-    void loadReviews()
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
+  const { reviews, isPending, loadError, refreshWarning } = useReviewsStream()
+  const statusMessage = loadError
+    ? `Could not load reviews: ${loadError}`
+    : refreshWarning
+      ? `Showing latest cached reviews. Refresh failed: ${refreshWarning}`
+      : isPending
+        ? 'Loading reviews…'
+        : null
+  const statusClasses =
+    loadError
+      ? 'border-red-200 bg-red-50 text-red-700'
+      : refreshWarning
+        ? 'border-amber-200 bg-amber-50 text-amber-700'
+        : 'border-slate-200 bg-white text-slate-600'
 
   return (
     <main className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900">
@@ -79,29 +38,26 @@ function App() {
             Reviews
           </h1>
           <p className="mt-2 text-sm text-slate-600">
-            Live list from <code>localhost:8080/reviews</code>
+            Live list from <code>localhost:8080/reviews-async</code>
           </p>
         </header>
 
-        {isLoading && (
-          <div className="rounded-xl border border-slate-200 bg-white p-6 text-slate-600 shadow-sm">
-            Loading reviews…
+        {statusMessage && (
+          <div
+            aria-live="polite"
+            className={`min-h-16 rounded-xl border p-4 text-sm shadow-sm ${statusClasses} flex items-center`}
+          >
+            {statusMessage}
           </div>
         )}
 
-        {!isLoading && error && (
-          <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700 shadow-sm">
-            Could not load reviews: {error}
-          </div>
-        )}
-
-        {!isLoading && !error && reviews.length === 0 && (
+        {!isPending && !loadError && reviews.length === 0 && (
           <div className="rounded-xl border border-slate-200 bg-white p-6 text-slate-600 shadow-sm">
             No reviews were returned by the API.
           </div>
         )}
 
-        {!isLoading && !error && reviews.length > 0 && (
+        {reviews.length > 0 && (
           <ul className="space-y-4">
             {reviews.map((review) => (
               <li

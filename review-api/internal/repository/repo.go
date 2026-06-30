@@ -21,6 +21,9 @@ func NewAppleReview(db *gorm.DB) *AppleReviewRepo {
 }
 
 func (r *AppleReviewRepo) Persist(context context.Context, reviews []domain.Review) error {
+	if len(reviews) == 0 {
+		return nil
+	}
 	return r.db.WithContext(context).
 		Clauses(clause.OnConflict{DoNothing: true}).
 		Create(appleReviewsFromDomain(reviews)).Error

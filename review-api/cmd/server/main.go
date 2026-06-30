@@ -2,16 +2,15 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
+	"review-api/internal/api"
+	"review-api/internal/applefeed"
 	"review-api/internal/repository"
 	"review-api/internal/service"
 	"review-api/internal/sync"
-
-	"review-api/internal/applefeed"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -35,27 +34,7 @@ func main() {
 	feed := applefeed.NewFeed("595068606")
 	syncer := sync.New(repo, feed)
 	reviewService := service.NewService(syncer, repo)
-
-	mux := http.NewServeMux()
-	mux.HandleFunc("GET /reviews", func(w http.ResponseWriter, r *http.Request) {
-		reviews, err := reviewService.GetAppleReviews(r.Context())
-		if err != nil {
-			log.Println("failed to fetch reviews:", err)
-			http.Error(w, "failed to fetch reviews", http.StatusInternalServerError)
-			return
-		}
-
-		data, err := json.Marshal(reviews)
-		if err != nil {
-			http.Error(w, "failed to encode reviews", http.StatusInternalServerError)
-			return
-		}
-
-		w.Header().Set("Content-Type", "application/json")
-		_, _ = w.Write(data)
-	})
-
-	server := &http.Server{Addr: ":8080", Handler: mux}
+	server := &http.Server{Addr: ":8080", Handler: api.NewHandler(reviewService)}
 	log.Println("Server listening on :8080")
 
 	go func() {
