@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# review-ui
+React + TypeScript + Vite frontend for viewing reviews from `review-api`.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Design decisions and intent
+- **Backend-first scope**: this project prioritizes backend/API work; the UI is intentionally lightweight and primarily a delivery surface for streamed review data.
+- **Hook-centered state management**: `src/hooks/useReviewsStream.ts` is a deliberate abstraction to keep SSE parsing, sequencing, and error-state handling isolated from rendering.
+- **Single-page composition**: the UI is intentionally not split into many smaller components because current complexity is low and additional decomposition would add ceremony without much payoff.
+- 
+## What it does
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Connects to `GET /reviews-async` with `EventSource`.
+- Handles SSE events:
+  - `data` for review payloads
+  - `refresh_error` for refresh failures
+- Renders loading, hard-error, and soft-warning states.
+- 
+## Local development
+Prerequisite: Node.js
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The dev server runs on Vite defaults and proxies:
+- `/reviews` -> `http://localhost:8080`
+- `/reviews-async` -> `http://localhost:8080`
+- 
+Make sure the backend is running first.
+
+## Scripts
+- `npm run dev` - start dev server
+- `npm run build` - type-check and build
+- `npm run lint` - run Oxlint
+- `npm run preview` - preview production build
